@@ -1,3 +1,5 @@
+== THIS IS AN AUTOMATIC CONFLICT ==
+
 *   Fixes multiple calls to `logger.fatal` instead of a single call, 
     for every line in an exception backtrace, when printing trace 
     from `DebugExceptions` middleware.
