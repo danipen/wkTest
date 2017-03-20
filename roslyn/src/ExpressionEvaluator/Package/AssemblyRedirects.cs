@@ -2,6 +2,7 @@
 
 using Roslyn.VisualStudio.Setup;
 // fisrt change
+// second change
 [assembly: ProvideRoslynBindingRedirection("Microsoft.CodeAnalysis.CSharp.ExpressionEvaluator.ExpressionCompiler.dll")]
 [assembly: ProvideRoslynBindingRedirection("Microsoft.CodeAnalysis.CSharp.ExpressionEvaluator.ResultProvider.dll")]
 [assembly: ProvideRoslynBindingRedirection("Microsoft.CodeAnalysis.ExpressionEvaluator.ExpressionCompiler.dll")]
