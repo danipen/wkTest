@@ -48,6 +48,9 @@ namespace Microsoft.CodeAnalysis.CSharp.Diagnostics.AddBraces
             return SpecializedTasks.EmptyTask;
         }
 
+        private SyntaxNode GetNewBlock(SyntaxNode statement, StatementSyntax statementBody) 
+            => statement.ReplaceNode(statementBody, SyntaxFactory.Block(statementBody));
+
         private SyntaxNode GetReplacementNode(SyntaxNode statement)
         {
             switch (statement.Kind())
@@ -88,9 +91,6 @@ namespace Microsoft.CodeAnalysis.CSharp.Diagnostics.AddBraces
 
             return default(SyntaxNode);
         }
-
-        private SyntaxNode GetNewBlock(SyntaxNode statement, StatementSyntax statementBody) 
-            => statement.ReplaceNode(statementBody, SyntaxFactory.Block(statementBody));
 
         private class MyCodeAction : CodeAction.DocumentChangeAction
         {
