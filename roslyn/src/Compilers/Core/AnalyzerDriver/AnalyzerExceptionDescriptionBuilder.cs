@@ -9,7 +9,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics
 {
     internal static class AnalyzerExceptionDescriptionBuilder
     {
-        // Description separator
+        // Description separator //change
         private static readonly string s_separator = Environment.NewLine + "-----" + Environment.NewLine;
 
         public static string CreateDiagnosticDescription(this Exception exception)

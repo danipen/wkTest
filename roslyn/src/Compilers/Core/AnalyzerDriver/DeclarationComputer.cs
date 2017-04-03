@@ -45,6 +45,7 @@ namespace Microsoft.CodeAnalysis
             // For namespace declarations, GetDeclaredSymbol returns a compilation scoped namespace symbol,
             // which includes declarations across the compilation, including those in referenced assemblies.
             // However, we are only interested in the namespace symbol scoped to the compilation's source assembly.
+            // change
             var namespaceSymbol = declaredSymbol as INamespaceSymbol;
             if (namespaceSymbol != null && namespaceSymbol.ConstituentNamespaces.Length > 1)
             {
