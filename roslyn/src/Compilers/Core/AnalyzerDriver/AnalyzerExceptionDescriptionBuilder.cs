@@ -5,6 +5,8 @@ using System.IO;
 using System.Linq;
 using Roslyn.Utilities;
 
+// this is changed on master
+
 namespace Microsoft.CodeAnalysis.Diagnostics
 {
     internal static class AnalyzerExceptionDescriptionBuilder
