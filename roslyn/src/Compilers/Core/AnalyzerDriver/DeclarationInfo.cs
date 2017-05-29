@@ -6,7 +6,7 @@ using System.Diagnostics;
 namespace Microsoft.CodeAnalysis
 {
     /// <summary>
-    /// Struct containing information about a source declaration.
+    /// Struct containing information about a source declaration //this change will be added using a cherry pick.
     /// </summary>
     internal struct DeclarationInfo
     {
