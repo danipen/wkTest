@@ -11,7 +11,7 @@ namespace Microsoft.CodeAnalysis.Diagnostics
 {
     internal static class AnalyzerExceptionDescriptionBuilder
     {
-        // Description separator //change // this change will create a cherry pick conflict
+        // Description separator //change // this change will be cherry picked, and will create a conflict
         private static readonly string s_separator = Environment.NewLine + "-----" + Environment.NewLine;
 
         public static string CreateDiagnosticDescription(this Exception exception)
