@@ -101,31 +101,6 @@ namespace Microsoft.CodeAnalysis.Editor.GoToDefinition
             }
         }
 
-        private static bool TryPresentInFindUsagesPresenter(
-            Solution solution, ISymbol symbol, 
-            IEnumerable<Lazy<IStreamingFindUsagesPresenter>> streamingPresenters,
-            CancellationToken cancellationToken)
-        {
-            var presenter = GetFindUsagesPresenter(streamingPresenters);
-            if (presenter == null)
-            {
-                return false;
-            }
-
-            var definition = symbol.ToDefinitionItem(solution);
-            var context = presenter.StartSearch(EditorFeaturesResources.Go_to_Definition);
-            try
-            {
-                context.OnDefinitionFoundAsync(definition).Wait(cancellationToken);
-            }
-            finally
-            {
-                context.OnCompletedAsync().Wait(cancellationToken);
-            }
-
-            return true;
-        }
-
         private static IStreamingFindUsagesPresenter GetFindUsagesPresenter(
             IEnumerable<Lazy<IStreamingFindUsagesPresenter>> streamingPresenters)
         {
@@ -186,6 +161,31 @@ namespace Microsoft.CodeAnalysis.Editor.GoToDefinition
                     return false;
                 }
             }
+        }
+
+        private static bool TryPresentInFindUsagesPresenter(
+            Solution solution, ISymbol symbol, 
+            IEnumerable<Lazy<IStreamingFindUsagesPresenter>> streamingPresenters,
+            CancellationToken cancellationToken)
+        {
+            var presenter = GetFindUsagesPresenter(streamingPresenters);
+            if (presenter == null)
+            {
+                return false;
+            }
+
+            var definition = symbol.ToDefinitionItem(solution);
+            var context = presenter.StartSearch(EditorFeaturesResources.Go_to_Definition);
+            try
+            {
+                context.OnDefinitionFoundAsync(definition).Wait(cancellationToken);
+            }
+            finally
+            {
+                context.OnCompletedAsync().Wait(cancellationToken);
+            }
+
+            return true;
         }
 
         private static bool TryThirdPartyNavigation(ISymbol symbol, Solution solution)
